@@ -1,4 +1,4 @@
-import RingCentral from '@rc-ex/core';
+import {SDK as RingCentral} from '@ringcentral/sdk';
 
 const node = document.createElement('h1');
 node.innerText = 'Hello world!';
@@ -18,6 +18,6 @@ const rc = new RingCentral({
 });
 
 const main = async () => {
-  await rc.authorize({username: 'fake', extension: '', password: 'fake'});
+  await rc.login({username: 'fake', extension: '', password: 'fake'});
 };
 // main();

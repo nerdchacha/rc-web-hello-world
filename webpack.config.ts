@@ -18,6 +18,14 @@ const config: Configuration = {
       },
     ],
   },
+  resolve: {
+    fallback: {
+      querystring: require.resolve('querystring-es3'),
+      crypto: require.resolve('crypto-browserify'),
+      stream: require.resolve('stream-browserify'),
+      buffer: require.resolve('buffer/'),
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Hello world!',
