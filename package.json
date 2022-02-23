@@ -4,7 +4,8 @@
     "serve": "webpack serve"
   },
   "dependencies": {
-    "@rc-ex/core": "^0.12.1"
+    "@rc-ex/core": "^0.12.1",
+    "@ungap/url-search-params": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.19",

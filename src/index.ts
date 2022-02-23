@@ -1,4 +1,4 @@
-import RingCentral from '@rc-ex/core';
+import URLSearchParams from '@ungap/url-search-params';
 
 const node = document.createElement('h1');
 node.innerText = 'Hello world!';
@@ -11,13 +11,20 @@ button.onclick = () => {
   main();
 };
 
-const rc = new RingCentral({
-  clientId: 'jJxc4f1ASJ2JlizgMdNnvg',
-  clientSecret: 'fake',
-  server: 'https://platform.ringcentral.com',
-});
-
 const main = async () => {
-  await rc.authorize({username: 'fake', extension: '', password: 'fake'});
+  const body = new URLSearchParams();
+  body.append('grant_type', 'password');
+  body.append('username', 'someuser');
+  body.append('password', 'fake');
+  body.append('extension', '');
+  fetch('https://platform.ringcentral.com/restapi/oauth/token', {
+    method: 'POST',
+    headers: {
+      Authorization: 'Basic ' + btoa('jJxc4f1ASJ2JlizgMdNnvg:fake'),
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      Accept: 'application/json',
+    },
+    body,
+  });
 };
 // main();
